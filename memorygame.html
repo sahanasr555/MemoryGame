@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      .grid2x2{
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        grid-template-rows: 200px 200px;
+      }
+      .grid3x3{
+        display: grid;
+        grid-template-columns: 2fr 2fr 2fr;
+        grid-template-rows: 160px 160px 160px;
+      }
+      .grid4x4{
+        display: grid;
+        grid-template-columns: 2fr 2fr 2fr 2fr;
+        grid-template-rows: 130px 130px 130px 130px;
+      }
+      .box{
+        border:2px solid black;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+
+    </div>
+    <script>
+      window.onload=function(){
+        function getBox(){
+          return `<div class='box'></div>`
+        }
+        function draw(no_of_boxes){
+          let html=" ";
+          document.querySelector(".container").classList.add(map.get(level))
+          for(let i=0;i<no_of_boxes;i++)
+          {
+            html+=getBox()
+          }
+
+          document.querySelector(".container").innerHTML=html
+      }
+      draw((level+1)**2)
+      }
+      let level=1;
+      const map=new Map();
+      map.set(1,"grid2x2")
+      map.set(2,"grid3x3")
+      map.set(3,"grid4x4")
+
+    </script>
+  </body>
+</html>
